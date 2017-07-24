@@ -1,1 +1,0 @@
-# saml_symfony
