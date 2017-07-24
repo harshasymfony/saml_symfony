@@ -1,0 +1,26 @@
+# To get started with security, check out the documentation:
+# https://symfony.com/doc/current/security.html
+security:
+
+    # https://symfony.com/doc/current/security.html#b-configuring-how-users-are-loaded
+    providers:
+        in_memory:
+            memory: ~
+
+    firewalls:
+        # disables authentication for assets and the profiler, adapt it according to your needs
+        dev:
+            pattern: ^/(_(profiler|wdt)|css|images|js)/
+            security: false
+
+        main:
+            light_saml_sp:
+                provider: db_provider       # user provider name configured in step 9
+                user_creator: user_creator  # name of the user creator service created in step 10
+                login_path: /saml/login
+                check_path: /saml/login_check
+            logout:
+                path: /logout
+            anonymous: ~
+    access_control:
+        - { path: ^/secure, roles: ROLE_USER }

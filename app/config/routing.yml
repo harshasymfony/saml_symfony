@@ -1,0 +1,10 @@
+app:
+    resource: '@AppBundle/Controller/'
+    type: annotation
+
+lightsaml_sp:
+    resource: "@LightSamlSpBundle/Resources/config/routing.yml"
+    prefix: saml
+
+logout:
+    path: /logout
