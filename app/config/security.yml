@@ -26,3 +26,5 @@ security:
             anonymous: ~
     access_control:
         - { path: ^/secure, roles: ROLE_USER }
+
+        
